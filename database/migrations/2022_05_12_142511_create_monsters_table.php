@@ -17,23 +17,23 @@ class CreateMonstersTable extends Migration
             $table->id();
             $table->timestamps();
 
-            $table->string("index");
-            $table->string("name");
-            $table->string("type");
-            $table->string("alignment");
-            $table->string("size");
-            $table->string("hit_dice");
-            $table->string("languages");
-            $table->integer("armor_class");
-            $table->integer("hit_points");
-            $table->integer("strength");
-            $table->integer("dexterity");
-            $table->integer("constitution");
-            $table->integer("intelligence");
-            $table->integer("wisdom");
-            $table->integer("charisma");
-            $table->integer("xp");
-            $table->integer("challenge_rating");
+            $table->string("index")->nullable();
+            $table->string("name")->nullable();
+            $table->string("type")->nullable();
+            $table->string("alignment")->nullable();
+            $table->string("size")->nullable();
+            $table->string("hit_dice")->nullable();
+            $table->string("languages")->nullable();
+            $table->integer("armor_class")->nullable();
+            $table->integer("hit_points")->nullable();
+            $table->integer("strength")->nullable();
+            $table->integer("dexterity")->nullable();
+            $table->integer("constitution")->nullable();
+            $table->integer("intelligence")->nullable();
+            $table->integer("wisdom")->nullable();
+            $table->integer("charisma")->nullable();
+            $table->integer("xp")->nullable();
+            $table->integer("challenge_rating")->nullable();
         });
     }
 

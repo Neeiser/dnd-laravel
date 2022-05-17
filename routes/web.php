@@ -14,9 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+ Route::get('/', function () {
+     return view('welcome');
+});
 
 
-Route::resource('show', 'MonsterController');
+Route::resource('monsters', 'MonsterController');
+
+// Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');
