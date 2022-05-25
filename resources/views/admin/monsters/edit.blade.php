@@ -1,10 +1,11 @@
+@extends('layouts.app')
 
-<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+@section('content')
 
 <div class="container">
     <div class="row">
         <div class="col">
-            <form method="POST" action="{{ route('monsters.update', $monster->id) }}">
+            <form method="POST" action="{{ route('admin.monsters.update', $monster->id) }}">
                 @csrf
                 @method('PUT')
 
@@ -25,3 +26,5 @@
         </div>
     </div>
 </div>
+
+@endsection

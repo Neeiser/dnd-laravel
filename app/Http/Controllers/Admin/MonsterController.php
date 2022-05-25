@@ -11,7 +11,9 @@ use App\Http\Controllers\Controller;
 class MonsterController extends Controller
 {
     public function index()
-    {
+    {   
+        $datas = config('abilityScores');
+
         $data = Monster::all();
 
         return view('admin.monsters.index', compact('data'));
@@ -21,11 +23,10 @@ class MonsterController extends Controller
     
 
 
-    public function show(Monster $monster){
-
-        
+    public function show(Monster $monster) {
 
         return view('admin.monsters.show', compact('monster'));
+        
     }
 
     /* ---------------- */
@@ -38,11 +39,11 @@ class MonsterController extends Controller
     
     public function store(Request $request)
     {
-        /* $request->validate($this->validation) */;
+        /* $request->validate($this->validation) */
 
         $monsterForm = $request->all();
 
-        $monster = new Monster();
+        $monster = Monster::create($monsterForm);
         $monster->fill($monsterForm);
         $monster->save();
 

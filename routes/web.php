@@ -18,9 +18,6 @@ use Illuminate\Support\Facades\Route;
      return view('welcome');
 });
 
-
-Route::resource('monsters', 'MonsterController');
-
 Auth::routes();
 
 

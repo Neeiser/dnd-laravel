@@ -39,10 +39,8 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
+                        
                         @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.monsters.index') }}">Mostri</a>
-                            </li>
                             
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -54,7 +52,15 @@
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
+
                         @else
+
+                            <li class=" nav-item">
+                                <a class="nav-link" href="{{ route('admin.monsters.index') }}">Mostri</a>
+                            </li>
+
+                            
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
@@ -73,11 +79,16 @@
                                 </div>
                             </li>
                         @endguest
+                        
                     </ul>
                 </div>
+                
+                
             </div>
         </nav>
-
+        
+        <a class="mt-3 ml-3 btn btn-primary" href="{{ route('admin.monsters.create')}}">Crea un mostro</a>
+        
         <main class="py-4">
             @yield('content')
         </main>

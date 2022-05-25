@@ -1,4 +1,6 @@
-<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+@extends('layouts.app')
+
+@section('content')
 
 <div class="card-body">
     <h1 class="card-title">Nome: {{ $monster->name }}</h1>
@@ -18,13 +20,15 @@
     <h2 class="card-text">Punteggio difficoltà: {{ $monster->challenge_rating }}</h2>
     <h2 class="card-text">Qualcosa che non so: {{ $monster->hit_dice }}</h2>
     
-    <form action="{{ route('monsters.edit', $monster->id)}}">
+    <form action="{{ route('admin.monsters.edit', $monster->id)}}">
         <button class="btn btn-primary">MODIFICA</button>
     </form>
     
-    <form action="{{ route('monsters.destroy', $monster->id)}}" method="POST">
+    <form action="{{ route('admin.monsters.destroy', $monster->id)}}" method="POST">
         @csrf
         @method('DELETE')
         <button class="btn btn-danger">CANCELLA</button>
     </form>
 </div>
+
+@endsection

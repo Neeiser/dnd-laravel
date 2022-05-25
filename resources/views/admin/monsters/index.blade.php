@@ -1,11 +1,39 @@
-<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+@extends('layouts.app')
 
-<div>
-    <a href="{{ route('monsters.create')}}">Crea un mostro</a>
+@section('content')
+    
 
-    <div>
-        @foreach ($data as $item)
-        <a class="d-block p-2 bg-dark text-white" href="{{ route('monsters.show', $item->id)}}">{{ $item->name }}</a>
-        @endforeach
-    </div>
-</div>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#ID</th>
+            <th scope="col">NAME</th>
+            <th scope="col">TYPE</th>
+            <th scope="col">ORIENTAMENTO</th>
+            <th scope="col">STAZZA</th>
+            <th scope="col">DANNO</th>
+            <th scope="col">ACTIONS</th>
+          </tr>
+        </thead>
+        
+        <tbody>
+          @foreach ($data as $item)
+          {{-- <a href="{{ route('admin.monsters.show', $item->id)}}"> --}}
+              <tr>
+                <th scope="row">{{ $item->id }}</th>
+                <td class="col-1">{{ $item->name }}</td>
+                <td>{{ $item->type }}</td>
+                <td>{{ $item->alignment }}</td>
+                <td>{{ $item->size }}</td>
+                <td>{{ $item->hit_dice }}</td>
+                <td>
+                    <a class="btn btn-info" id="show-a" href="{{ route('admin.monsters.show', $item->id)}}">VIEW</a>
+                </td>
+              </tr>
+          @endforeach
+        </tbody>
+    </table>
+
+
+@endsection
+
