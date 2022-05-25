@@ -21,6 +21,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource('monsters', 'MonsterController');
 
-// Auth::routes();
+Auth::routes();
+
+
+Route::middleware('auth')
+    -> namespace('Admin')
+    -> name('admin.')
+    -> prefix('admin')
+    -> group(function () {
+        Route::get('/', 'HomeController@index')->name('home');
+        Route::resource('/monsters', 'MonsterController');
+        // Route::resource('/categories', 'CategoryController');
+    });
 
 // Route::get('/home', 'HomeController@index')->name('home');

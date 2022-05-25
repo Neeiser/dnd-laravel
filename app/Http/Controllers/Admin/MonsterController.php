@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Monster;
 use Illuminate\Validation\Rules;
+use App\Http\Controllers\Controller;
+
 
 class MonsterController extends Controller
 {
@@ -12,7 +14,7 @@ class MonsterController extends Controller
     {
         $data = Monster::all();
 
-        return view('monsters.index', compact('data'));
+        return view('admin.monsters.index', compact('data'));
     }
 
     /* ---------------- */
@@ -23,14 +25,14 @@ class MonsterController extends Controller
 
         
 
-        return view('monsters.show', compact('monster'));
+        return view('admin.monsters.show', compact('monster'));
     }
 
     /* ---------------- */
 
     public function create(){
 
-        return view('monsters.create');
+        return view('admin.monsters.create');
         
     }
     
@@ -44,14 +46,14 @@ class MonsterController extends Controller
         $monster->fill($monsterForm);
         $monster->save();
 
-        return redirect()->route('monsters.index');
+        return redirect()->route('admin.monsters.index');
     }
     
     /* ---------------- */
     
     public function edit(Monster $monster)
     {
-        return view('monsters.edit', compact('monster'));
+        return view('admin.monsters.edit', compact('monster'));
     }
 
     /* ---------------- */
@@ -61,7 +63,7 @@ class MonsterController extends Controller
         $data = $request->all();
         //$request->validate($this->validationData);
         $monster->update($data);
-        return redirect()->route('monsters.show', $monster->id);
+        return redirect()->route('admin.monsters.show', $monster->id);
     }
 
     /* ---------------- */
@@ -69,6 +71,6 @@ class MonsterController extends Controller
     public function destroy(Monster $monster)
     {
         $monster->delete();
-        return redirect()->route('monsters.index');
+        return redirect()->route('admin.monsters.index');
     }
 }
